@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "nodemon app"
+    "start": "nodemon app"
   },
   "repository": {
     "type": "git",
@@ -20,9 +20,11 @@
   "homepage": "https://github.com/moon18004/server#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
-    "helmet": "^6.1.5",
+    "helmet": "^6.2.0",
+    "mongodb": "^5.5.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22"
   }
