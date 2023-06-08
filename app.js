@@ -28,9 +28,9 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
   console.error(error);
   res.sendStatus(500);
-})
-
+});
 database.initDb(url).then(()=>{
+  // console.log('asdf');
   app.listen(port, () =>{
     console.log('Server is runing on port 8080');
   } )
