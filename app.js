@@ -3,7 +3,8 @@ import cors from 'cors';
 import morgan from 'morgan';
 import helmet from "helmet";
 import 'express-async-errors';
-import * as database from './databse/database.js'
+import {initDb}  from './databse/database.js';
+import { config } from './config.js';
 import * as dotenv from 'dotenv';
 
 import router from './router/index.js'
@@ -29,9 +30,12 @@ app.use((error, req, res, next) => {
   console.error(error);
   res.sendStatus(500);
 });
-database.initDb(url).then(()=>{
-  // console.log('asdf');
-  app.listen(port, () =>{
+initDb().then(()=>{
+  const server = app.listen(config.host.port, () =>{
     console.log('Server is runing on port 8080');
-  } )
+  })
+  // console.log('asdf');
+  // app.listen(port, () =>{
+  //   console.log('Server is runing on port 8080');
+  // } )
 }).catch(console.error);
