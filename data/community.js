@@ -15,6 +15,7 @@ const postSchema= new Mongoose.Schema(
     cat_id: {type: String, required: true}
 
   },
+  //시간 생성
   {timestamps: true}
 )
 useVirtualId(postSchema);
@@ -41,6 +42,7 @@ export async function getById(id){
   return Post.findById(id)
   // return getPosts().findOne({_id: new ObjectId(id) });
 }
+
 export async function getAllByUsername(author){
   console.log(author);
   // const author = author.low
@@ -64,3 +66,4 @@ export async function update(id, text) {
 export async function remove(id) {
   return Post.findByIdAndDelete(id);
 }
+
