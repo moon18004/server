@@ -41,3 +41,26 @@ export async function getById(id){
   return Post.findById(id)
   // return getPosts().findOne({_id: new ObjectId(id) });
 }
+export async function getAllByUsername(author){
+  console.log(author);
+  // const author = author.low
+  return Post.find({author: {$regex: author, $options: "i"}}).sort({createdAt:-1});
+}
+export async function getAllBySearch(search){
+  // const filteredByTitle = Post.find({title: search}).sort({createdAt:-1});
+  // console.log(filteredByTitle);
+  // const filteredBymainText = Post.find({mainText: search}).sort({createdAt:-1});
+  // const filtered = new Set([...filteredByTitle, ...filteredBymainText].sort({createdAt:-1}));
+  // const filtered = Post.find({title: {$regex: search, $options: "i"}}).find({mainText: {$search : search}}).sort({createdAt: -1});
+  const filtered = Post.find({title: {$regex: search, $options: "i"}}).sort({createdAt: -1});
+  console.log(filtered);
+  return filtered;
+
+}
+
+export async function update(id, text) {
+  return Post.findByIdAndUpdate(id, { text }, { returnOriginal: false });
+}
+export async function remove(id) {
+  return Post.findByIdAndDelete(id);
+}
