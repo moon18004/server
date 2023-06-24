@@ -51,7 +51,15 @@ export async function getAll() {
   }
   
 export async function create(body) {
-  return new Course({...body}).save();
+  return new Course({
+    nick: body.nick,
+    subject: body.subject,
+    code: body.code,
+    text: body.text,
+    reply: body.reply,
+    like: body.like,
+    comments: body.comments
+  }).save();
 }
   
 export async function getById(id){

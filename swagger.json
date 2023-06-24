@@ -171,6 +171,38 @@
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nick": {
+                  "example": "any"
+                },
+                "subject": {
+                  "example": "any"
+                },
+                "code": {
+                  "example": "any"
+                },
+                "text": {
+                  "example": "any"
+                },
+                "reply": {
+                  "example": "any"
+                },
+                "like": {
+                  "example": "any"
+                },
+                "comments": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
