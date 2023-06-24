@@ -32,7 +32,18 @@ export async function getAll() {
 }
 
 export async function create(body) {
-  return new Post({...body}).save();
+  
+  
+  return new Post({
+    category: "question",
+    title: body.title,
+    mainText: body.mainText,
+    views: 0,
+    comments : 0,
+    author: body.author,
+    cat_id: "질문",
+  }).save();
+  // return new Post({body}).save();
   // const contact = body;
   // console.log(contact);
   // return getPosts().insertOne(contact);
@@ -60,8 +71,8 @@ export async function getAllBySearch(search){
 
 }
 
-export async function update(id, text) {
-  return Post.findByIdAndUpdate(id, { text }, { returnOriginal: false });
+export async function update(id, mainText) {
+  return Post.findByIdAndUpdate(id, { mainText }, { returnOriginal: false });
 }
 export async function remove(id) {
   return Post.findByIdAndDelete(id);

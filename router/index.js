@@ -3,10 +3,12 @@ import express from 'express';
 // import courseRouter from './courses';
 import communityRouter from './community.js';
 import courseRouter from './course.js';
+import swaggerRoute from './swagger.js';
 // import userRouter from './user.js';
 
 const routes = express.Router();
 
+routes.use('/', swaggerRoute);
 routes.use('/community', communityRouter);
 routes.use('/course', courseRouter);
 // routes.use('./user', userRouter);
