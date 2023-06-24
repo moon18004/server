@@ -27,5 +27,8 @@ export const config = {
   },
   db: {
     host :required('DB_HOST'),
+  },
+  render: {
+    host: required('HOST')
   }
 }

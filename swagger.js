@@ -1,12 +1,13 @@
 import swaggerAutogen from 'swagger-autogen';
+import { config } from './config.js';
 
 const doc = {
   info: {
     title: 'My API',
     description: 'Dwitter API'
   },
-  host: 'localhost:8080',
-  schemes: ['http']
+  host: config.render.host,
+  schemes: ['https']
 };
 
 const outputFile = './swagger.json';

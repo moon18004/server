@@ -5,10 +5,10 @@
     "description": "Dwitter API",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "potato-server-tyx1.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api-docs": {
