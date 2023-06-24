@@ -15,6 +15,7 @@ const postSchema= new Mongoose.Schema(
     cat_id: {type: String, required: true}
 
   },
+  //시간 생성
   {timestamps: true}
 )
 useVirtualId(postSchema);
@@ -41,3 +42,4 @@ export async function getById(id){
   return Post.findById(id)
   // return getPosts().findOne({_id: new ObjectId(id) });
 }
+

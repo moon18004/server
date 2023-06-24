@@ -21,7 +21,6 @@ export  function useVirtualId(schema){
   })
   schema.set('toJSON', {virtuals: true});
   schema.set('toObject', {virtuals: true});
-
 }
 
 export function getPosts(){
@@ -30,4 +29,8 @@ export function getPosts(){
 
   // }
   return db.collection('posts');
+}
+
+export function getCourses(){
+  return db.collection('courses');
 }
