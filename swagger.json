@@ -5,7 +5,7 @@
     "description": "Dwitter API",
     "version": "1.0.0"
   },
-  "host": "potato-server-tyx1.onrender.com",
+  "host": "byuifriendserver.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
