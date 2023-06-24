@@ -30,9 +30,8 @@ export async function getPost(req, res){
 
 export async function create(req, res, next){
 
-  const body = {
-    ...req.body
-  }
+  const {category,title,mainText,views,comments, author,cat_id} = req.body;
+  const body = {category,title,mainText,views,comments, author,cat_id};
   const community = await communityRepository.create(body);
   res.status(201).json(community);
 }
@@ -42,25 +41,25 @@ export async function updatePost(req, res, next) {
   const id = req.params.id;
   const text = req.body.text;
 
-  const tweet = await tweetRepository.getById(id);
-  if(!tweet){
+  const post = await communityRepository.getById(id);
+  if(!post){
     return res.sendStatus(404);
   }
   // if(tweet.userId !== req.userId){
   //   return res.sendStatus(403);
   // }
-  const updated = await tweetRepository.update(id, text);
+  const updated = await communityRepository.update(id, text);
   res.status(200).json(updated);
 }
 export async function deletePost(req, res, next){
   const id = req.params.id;
-  const tweet = await tweetRepository.getById(id);
-  if(!tweet){
+  const post = await communityRepository.getById(id);
+  if(!post){
     return res.sendStatus(404);
   }
   // if(tweet.userId !== req.userId){
   //   return res.sendStatus(403);
   // }
-  await tweetRepository.remove(id);
+  await communityRepository.remove(id);
   res.sendStatus(204);
 }

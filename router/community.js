@@ -7,6 +7,8 @@ const router = express.Router();
 router.get('/', communityController.getPosts);
 router.post('/', communityController.create);
 router.get('/:id', communityController.getPost);
+router.put('/:id', communityController.updatePost);
+router.delete('/:id', communityController.deletePost);
 
 export default router;
 
