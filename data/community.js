@@ -23,7 +23,7 @@ useVirtualId(postSchema);
 const Post = Mongoose.model('Post', postSchema);
 
 export async function getAll() {
-
+  console.log("getAll");
   return Post.find().sort({createdAt: -1});
   // return getPosts() //
   //   .find()

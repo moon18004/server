@@ -2,6 +2,7 @@
 import * as communityRepository from '../data/community.js';
 
 export async function getPosts(req, res){
+  console.log("getPosts");
   const username = req.query.username;
   const search = req.query.search;
   const data = (username 
