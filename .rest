@@ -33,3 +33,13 @@ Content-Type: application/json
 
 ### delete course
 DELETE http://localhost:8080/course/64968c9d1b466757af14bce9 HTTP/1.1
+
+### create comment
+POST http://localhost:8080/comment HTTP/1.1
+content-type: application/json
+
+{
+    "author": "Yongdasa", 
+    "text": "t12341234",
+    "source_id": "2"
+}

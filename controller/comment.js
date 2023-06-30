@@ -21,8 +21,8 @@ export async function getComment(req, res){
 }
 
 export async function commentCreate(req, res, next){
-  const {author, text} = req.body;
-  const body = {author, text};
+  const {author, text, source_id} = req.body;
+  const body = {author, text, source_id};
   const comment = await commentRepository.create(body);
   res.status(201).json(comment);
 }

@@ -316,6 +316,9 @@
                 },
                 "text": {
                   "example": "any"
+                },
+                "source_id": {
+                  "example": "any"
                 }
               }
             }

@@ -50,7 +50,6 @@ export async function getById(id){
 
 export async function update(id, text) {
   return Comment.findByIdAndUpdate(id, {
-    author: author,
     text: text
   });
 }
