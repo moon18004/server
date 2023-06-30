@@ -314,22 +314,7 @@
                 "author": {
                   "example": "any"
                 },
-                "subject": {
-                  "example": "any"
-                },
-                "code": {
-                  "example": "any"
-                },
                 "text": {
-                  "example": "any"
-                },
-                "reply": {
-                  "example": "any"
-                },
-                "like": {
-                  "example": "any"
-                },
-                "comments": {
                   "example": "any"
                 }
               }
@@ -378,15 +363,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "author": {
-                  "example": "any"
-                },
-                "subject": {
-                  "example": "any"
-                },
-                "code": {
-                  "example": "any"
-                },
                 "text": {
                   "example": "any"
                 }

@@ -21,16 +21,16 @@ export async function getComment(req, res){
 }
 
 export async function commentCreate(req, res, next){
-  const {author, subject, code, text,reply, like, comments} = req.body;
-  const body = {author, subject, code, text, reply, like, comments};
+  const {author, text} = req.body;
+  const body = {author, text};
   const comment = await commentRepository.create(body);
   res.status(201).json(comment);
 }
 
 export async function updateComment(req, res, next){
   const id = req.params.id;
-  const {author, subject, code, text} = req.body;
-  const update = await commentRepository.update(id, author, subject, code, text);
+  const {text} = req.body;
+  const update = await commentRepository.update(id, text);
   
   if(update){
     res.status(200).json(update);
