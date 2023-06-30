@@ -7,7 +7,7 @@ export async function getCourses(req, res){
   res.setHeader('Content-Type', 'application/json');
 
   // const filtered = data.filter((item)=> {
-  //   return item.nick === name;
+  //   return item.author === name;
   // })
   
   res.status(200).json(data);
@@ -26,16 +26,16 @@ export async function getCourse(req, res){
 }
 
 export async function courseCreate(req, res, next){
-  const {nick, subject, code, text,reply, like, comments} = req.body;
-  const body = {nick, subject, code, text, reply, like, comments};
+  const {author, subject, code, text,reply, like, comments} = req.body;
+  const body = {author, subject, code, text, reply, like, comments};
   const course = await courseRepository.create(body);
   res.status(201).json(course);
 }
 
 export async function updateCourse(req, res, next){
   const id = req.params.id;
-  const {nick, subject, code, text} = req.body;
-  const update = await courseRepository.update(id, nick, subject, code, text);
+  const {author, subject, code, text} = req.body;
+  const update = await courseRepository.update(id, author, subject, code, text);
   
   if(update){
     res.status(200).json(update);

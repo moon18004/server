@@ -1,7 +1,7 @@
-import { getCourses, useVirtualId } from '../databse/database.js';
+import { useVirtualId } from '../databse/database.js';
 import Mongoose from 'mongoose';
 
-const courseSchema =  Mongoose.Schema({
+const commentSchema =  Mongoose.Schema({
 
   // _id 부분은 기본적으로 생략. 알아서 Object.id를 넣어줌
   author: {
@@ -42,16 +42,16 @@ const courseSchema =  Mongoose.Schema({
   },
 });
 
-useVirtualId(courseSchema);
+useVirtualId(commentSchema);
 
-const Course = Mongoose.model('course', courseSchema);
+const Comment = Mongoose.model('comment', commentSchema);
 
 export async function getAll() {
-    return Course.find().sort({createdAt: -1});
+    return Comment.find().sort({createdAt: -1});
   }
   
 export async function create(body) {
-  return new Course({
+  return new Comment({
     author: body.author,
     subject: body.subject,
     code: body.code,
@@ -63,12 +63,12 @@ export async function create(body) {
 }
   
 export async function getById(id){
-    return Course.findById(id)
+    return Comment.findById(id)
     
 }
 
 export async function update(id, author, subject, code, text) {
-  return Course.findByIdAndUpdate(id, {
+  return Comment.findByIdAndUpdate(id, {
     author: author,
     subject: subject,
     code: code,
@@ -77,5 +77,5 @@ export async function update(id, author, subject, code, text) {
 }
 
 export async function discard(id) {
-  return Course.findByIdAndDelete(id);
+  return Comment.findByIdAndDelete(id);
 }
