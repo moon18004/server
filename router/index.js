@@ -12,11 +12,8 @@ const routes = express.Router();
 routes.use('/', swaggerRoute);
 routes.use('/community', communityRouter);
 routes.use('/course', courseRouter);
-<<<<<<< HEAD
 routes.use('/comment', commentRouter);
-=======
 routes.use('/auth', authRouter);
->>>>>>> 401dd08 (auth)
 // routes.use('./user', userRouter);
 
 export default routes;
