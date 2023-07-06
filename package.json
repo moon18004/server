@@ -20,23 +20,28 @@
   },
   "homepage": "https://github.com/moon18004/server#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "cursor": "^0.1.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
+    "express-validator": "^7.0.1",
     "has-proto": "^1.0.1",
     "helmet": "^6.2.0",
+    "jsonwebtoken": "^9.0.0",
     "mongodb": "^5.5.0",
     "mongoose": "^7.2.2",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.9.3",
     "nodemon": "^2.0.22",
     "restore-cursor": "^4.0.0",
     "swagger-ui-express": "^4.6.3"
   },
   "devDependencies": {
     "swagger-autogen": "^2.23.3"
-  },"engines": {
+  },
+  "engines": {
     "node": ">=16 <17"
   }
 }
