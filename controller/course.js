@@ -26,9 +26,9 @@ export async function getCourse(req, res){
 }
 
 export async function courseCreate(req, res, next){
-  const {author, subject, code, text,reply, like, comments} = req.body;
+  const {author, subject, code, text, reply, like, comments} = req.body;
   const body = {author, subject, code, text, reply, like, comments};
-  const course = await courseRepository.create(body);
+  const course = await courseRepository.create(body, req.userId);
   res.status(201).json(course);
 }
 

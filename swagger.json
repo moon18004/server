@@ -191,13 +191,13 @@
                   "example": "any"
                 },
                 "reply": {
-                  "example": "any"
+                  "example": 1
                 },
                 "like": {
-                  "example": "any"
+                  "example": 1
                 },
                 "comments": {
-                  "example": "any"
+                  "example": 1
                 }
               }
             }
