@@ -1,5 +1,6 @@
 import { getCourses, useVirtualId } from '../databse/database.js';
 import Mongoose from 'mongoose';
+import * as userRepository from './auth.js';
 
 const courseSchema =  Mongoose.Schema({
 
@@ -40,6 +41,10 @@ const courseSchema =  Mongoose.Schema({
     type: Date,
     default: Date.now, // 기본값
   },
+  userId: {
+    type: String,
+    required: true
+  }
 });
 
 useVirtualId(courseSchema);
@@ -51,15 +56,16 @@ export async function getAll() {
   }
   
 export async function create(body,userId) {
-  
+  const user = await userRepository.getById(userId) || await userRepository.findOauthById(userId);
   return new Course({
-    author: body.author,
+    author: user.name,
     subject: body.subject,
     code: body.code,
     text: body.text,
     reply: body.reply,
     like: body.like,
-    comments: body.comments
+    comments: body.comments,
+    userId // userId : userId
   }).save();
 }
   
