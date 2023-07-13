@@ -5,7 +5,6 @@ import courseRouter from './course.js';
 import commentRouter from './comment.js'
 import swaggerRoute from './swagger.js';
 import authRouter from './auth.js';
-import routes from 'express'
 // import userRouter from './user.js';
 import pkg from 'express-openid-connect';
 import * as oauth from '../controller/oauth.js';
