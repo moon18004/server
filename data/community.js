@@ -1,6 +1,7 @@
 import { getPosts, useVirtualId } from '../databse/database.js';
 import MongoDb from 'mongodb';
 import Mongoose from 'mongoose';
+import * as userRepository from '../data/auth.js';
 
 const ObjectId = MongoDb.ObjectId;
 
@@ -31,16 +32,15 @@ export async function getAll() {
   //   .toArray();
 }
 
-export async function create(body) {
-  
-  
+export async function create(body, userId) {
+  const user = await userRepository.findById(userId) || await userRepository.findOauthById(userId);
   return new Post({
     category: "question",
     title: body.title,
     mainText: body.mainText,
     views: 0,
     comments : 0,
-    author: body.author,
+    author: user.name,
     cat_id: "질문",
   }).save();
   // return new Post({body}).save();
