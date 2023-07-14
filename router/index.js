@@ -14,7 +14,7 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'http://localhost:8080/',
+  baseURL: 'https://byuifriendserver.onrender.com',
   clientID: 'tCugCzlHSCNbsWPRn2tLcHhrsfRM9FjY',
   issuerBaseURL: 'https://dev-r1j351qlttd53v8o.us.auth0.com'
 };

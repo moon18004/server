@@ -30,9 +30,9 @@ export async function getPost(req, res){
 
 export async function create(req, res, next){
 
-  const {category,title,mainText,views,comments, author,cat_id} = req.body;
-  const body = {category,title,mainText,views,comments, author,cat_id};
-  const community = await communityRepository.create(body);
+  const {category,title,mainText,views,comments} = req.body;
+  const body = {category,title,mainText,views,comments};
+  const community = await communityRepository.create(body, req.userId);
   res.status(201).json(community);
 }
 
