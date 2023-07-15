@@ -91,4 +91,23 @@ describe('Auth Middleware', () =>{
     expect(reponse._getJSONData().message).toBe('Authentication Error');
     expect(next).not.toBeCalled();
   });
+  it('passes a request with valid Authorization header with token', async () => {
+    const token = faker.random.alphaNumeric(128);
+    const userId = faker.random.alphaNumeric(32);
+    const request = httpMocks.createRequest({
+      method: 'GET',
+      url: '/community',
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const response = httpMocks.createResponse();
+    const next = jest.fn();
+    jwt.verify = jest.fn((token, secret, callback) => {
+      callback(undefined, { id: userId });
+    });
+    userRepository.findById = jest.fn((id) => Promise.resolve({ id }));
+    await isAuth(request, response, next);
+
+    expect(request).toMatchObject({ userId, token });
+    expect(next).toHaveBeenCalledTimes(1);
+  });
 })
