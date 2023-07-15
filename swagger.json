@@ -240,13 +240,13 @@
                   "example": "any"
                 },
                 "reply": {
-                  "example": "any"
+                  "example": 0
                 },
                 "like": {
-                  "example": "any"
+                  "example": 0
                 },
                 "comments": {
-                  "example": "any"
+                  "example": 0
                 }
               }
             }
