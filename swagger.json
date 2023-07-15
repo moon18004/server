@@ -219,6 +219,11 @@
         }
       },
       "post": {
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "description": "",
         "parameters": [
           {
@@ -283,6 +288,11 @@
         }
       },
       "put": {
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "description": "",
         "parameters": [
           {
@@ -326,6 +336,11 @@
         }
       },
       "delete": {
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "description": "",
         "parameters": [
           {

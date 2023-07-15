@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1689406937609" clover="3.2.0">
-  <project timestamp="1689406937609" name="All files">
+<coverage generated="1689460609094" clover="3.2.0">
+  <project timestamp="1689460609094" name="All files">
     <metrics statements="87" coveredstatements="65" conditionals="31" coveredconditionals="22" methods="24" coveredmethods="10" elements="142" coveredelements="97" complexity="0" loc="87" ncloc="87" packages="5" files="6" classes="6"/>
     <package name="server">
       <metrics statements="6" coveredstatements="5" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
-      <file name="config.js" path="C:\BYUI\Potato\server\config.js">
+      <file name="config.js" path="/Users/yong/Code/projectPotato/server/config.js">
         <metrics statements="6" coveredstatements="5" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="2" count="2" type="stmt"/>
         <line num="6" count="16" type="cond" truecount="2" falsecount="0"/>
@@ -16,7 +16,7 @@
     </package>
     <package name="server.controller">
       <metrics statements="39" coveredstatements="31" conditionals="14" coveredconditionals="9" methods="6" coveredmethods="5"/>
-      <file name="community.js" path="C:\BYUI\Potato\server\controller\community.js">
+      <file name="community.js" path="/Users/yong/Code/projectPotato/server/controller/community.js">
         <metrics statements="39" coveredstatements="31" conditionals="14" coveredconditionals="9" methods="6" coveredmethods="5"/>
         <line num="6" count="7" type="stmt"/>
         <line num="9" count="7" type="stmt"/>
@@ -61,7 +61,7 @@
     </package>
     <package name="server.data">
       <metrics statements="13" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="0"/>
-      <file name="auth.js" path="C:\BYUI\Potato\server\data\auth.js">
+      <file name="auth.js" path="/Users/yong/Code/projectPotato/server/data/auth.js">
         <metrics statements="13" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="0"/>
         <line num="5" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
@@ -80,7 +80,7 @@
     </package>
     <package name="server.databse">
       <metrics statements="7" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
-      <file name="database.js" path="C:\BYUI\Potato\server\databse\database.js">
+      <file name="database.js" path="/Users/yong/Code/projectPotato/server/databse/database.js">
         <metrics statements="7" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
         <line num="8" count="0" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
@@ -93,7 +93,7 @@
     </package>
     <package name="server.middleware">
       <metrics statements="22" coveredstatements="20" conditionals="12" coveredconditionals="9" methods="3" coveredmethods="3"/>
-      <file name="auth.js" path="C:\BYUI\Potato\server\middleware\auth.js">
+      <file name="auth.js" path="/Users/yong/Code/projectPotato/server/middleware/auth.js">
         <metrics statements="16" coveredstatements="14" conditionals="10" coveredconditionals="7" methods="2" coveredmethods="2"/>
         <line num="6" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
@@ -112,7 +112,7 @@
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
       </file>
-      <file name="validator.js" path="C:\BYUI\Potato\server\middleware\validator.js">
+      <file name="validator.js" path="/Users/yong/Code/projectPotato/server/middleware/validator.js">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="2" type="stmt"/>

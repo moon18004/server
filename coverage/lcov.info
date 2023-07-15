@@ -21,7 +21,7 @@ BRF:5
 BRH:4
 end_of_record
 TN:
-SF:controller\community.js
+SF:controller/community.js
 FN:5,(anonymous_0)
 FN:9,(anonymous_1)
 FN:21,(anonymous_2)
@@ -95,7 +95,7 @@ BRF:14
 BRH:9
 end_of_record
 TN:
-SF:data\auth.js
+SF:data/auth.js
 FN:23,createOauth
 FN:24,(anonymous_1)
 FN:26,getOauthId
@@ -135,7 +135,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:databse\database.js
+SF:databse/database.js
 FN:7,initDb
 FN:18,useVirtualId
 FN:19,(anonymous_2)
@@ -161,7 +161,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:middleware\auth.js
+SF:middleware/auth.js
 FN:8,(anonymous_0)
 FN:21,(anonymous_1)
 FNF:2
@@ -200,7 +200,7 @@ BRF:10
 BRH:7
 end_of_record
 TN:
-SF:middleware\validator.js
+SF:middleware/validator.js
 FN:4,(anonymous_0)
 FNF:1
 FNH:1
