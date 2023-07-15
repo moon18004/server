@@ -73,13 +73,13 @@ export async function getById(id){
     return Course.findById(id)
 }
 
-export async function update(id, author, subject, code, text) {
+export async function update(id, body) {
   const user = await userRepository.findById(userId) || await userRepository.findOauthById(userId);
   return Course.findByIdAndUpdate(id, {
     author: user.name,
-    subject: subject,
-    code: code,
-    text: text
+    subject: body.subject,
+    code: body.code,
+    text: body.text
   });
 }
 

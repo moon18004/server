@@ -35,7 +35,8 @@ export async function courseCreate(req, res, next){
 export async function updateCourse(req, res, next){
   const id = req.params.id;
   const {author, subject, code, text} = req.body;
-  const update = await courseRepository.update(id, author, subject, code, text);
+  const body = {author, subject, code, text};
+  const update = await courseRepository.update(id, body);
   const course = await courseRepository.getById(id);
   if(course.userId !== req.userId){
     return res.sendStatus(403);
