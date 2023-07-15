@@ -10,10 +10,9 @@ const postSchema= new Mongoose.Schema(
     category: {type: String, required: true},
     title: {type: String, required: true},
     mainText: {type: String, required: true},
-    views: {type: Number, required: true},
     comments : {type: Number, required: true},
     author: {type: String, required: true},
-    cat_id: {type: String, required: true}
+    userId : {type: String, required: true},
 
   },
   //시간 생성
@@ -38,10 +37,9 @@ export async function create(body, userId) {
     category: "question",
     title: body.title,
     mainText: body.mainText,
-    views: 0,
     comments : 0,
     author: user.name,
-    cat_id: "질문",
+    userId
   }).save();
   // return new Post({body}).save();
   // const contact = body;
@@ -71,8 +69,8 @@ export async function getAllBySearch(search){
 
 }
 
-export async function update(id, mainText) {
-  return Post.findByIdAndUpdate(id, { mainText }, { returnOriginal: false });
+export async function update(id, body) {
+  return Post.findByIdAndUpdate(id, { category: body.category, title:body.title, mainText: body.mainText}, { returnOriginal: false });
 }
 export async function remove(id) {
   return Post.findByIdAndDelete(id);

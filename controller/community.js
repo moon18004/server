@@ -30,8 +30,8 @@ export async function getPost(req, res){
 
 export async function create(req, res, next){
 
-  const {category,title,mainText,views,comments} = req.body;
-  const body = {category,title,mainText,views,comments};
+  const {category,title,mainText} = req.body;
+  const body = {category,title,mainText};
   const community = await communityRepository.create(body, req.userId);
   res.status(201).json(community);
 }
@@ -39,16 +39,20 @@ export async function create(req, res, next){
 
 export async function updatePost(req, res, next) {
   const id = req.params.id;
-  const text = req.body.text;
+  const {category,title,mainText} = req.body;
+  const body = {category,title,mainText};
 
   const post = await communityRepository.getById(id);
   if(!post){
     return res.sendStatus(404);
   }
+  if(post.userId !== req.userId){
+    return res.sendStatus(403);
+  }
   // if(tweet.userId !== req.userId){
   //   return res.sendStatus(403);
   // }
-  const updated = await communityRepository.update(id, text);
+  const updated = await communityRepository.update(id, body);
   res.status(200).json(updated);
 }
 export async function deletePost(req, res, next){
@@ -56,6 +60,9 @@ export async function deletePost(req, res, next){
   const post = await communityRepository.getById(id);
   if(!post){
     return res.sendStatus(404);
+  }
+  if(post.userId !== req.userId){
+    return res.sendStatus(403);
   }
   // if(tweet.userId !== req.userId){
   //   return res.sendStatus(403);
