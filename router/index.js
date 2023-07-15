@@ -8,6 +8,8 @@ import authRouter from './auth.js';
 // import userRouter from './user.js';
 import pkg from 'express-openid-connect';
 import * as oauth from '../controller/oauth.js';
+import { CommunityController } from '../controller/community.js';
+import * as communityRepository from '../data/community.js';
 const { requiresAuth, auth } = pkg;
 
 const config = {
@@ -31,7 +33,7 @@ routes.get('/profile', requiresAuth(), oauth.signup
 
 
 routes.use('/', swaggerRoute);
-routes.use('/community', communityRouter);
+routes.use('/community', communityRouter(new CommunityController(communityRepository)));
 routes.use('/course', courseRouter);
 routes.use('/comment', commentRouter);
 routes.use('/auth', authRouter);

@@ -5,11 +5,21 @@ import { isAuth } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get('/', communityController.getPosts);
-router.post('/',isAuth, communityController.create);
-router.get('/:id', communityController.getPost);
-router.put('/:id',isAuth, communityController.updatePost);
-router.delete('/:id',isAuth, communityController.deletePost);
 
-export default router;
+export default function communityRouter(communityController){
+  router.get('/', communityController.getPosts);
+  router.post('/',isAuth, communityController.create);
+  router.get('/:id', communityController.getPost);
+  router.put('/:id',isAuth, communityController.updatePost);
+  router.delete('/:id',isAuth, communityController.deletePost);
+  return router;
+}
+
+// router.get('/', communityController.getPosts);
+// router.post('/',isAuth, communityController.create);
+// router.get('/:id', communityController.getPost);
+// router.put('/:id',isAuth, communityController.updatePost);
+// router.delete('/:id',isAuth, communityController.deletePost);
+
+// export default router;
 

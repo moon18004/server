@@ -3,8 +3,6 @@ import MongoDb from 'mongodb';
 import Mongoose from 'mongoose';
 import * as userRepository from '../data/auth.js';
 
-const ObjectId = MongoDb.ObjectId;
-
 const postSchema= new Mongoose.Schema(
   {
     category: {type: String, required: true},

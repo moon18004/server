@@ -7,6 +7,7 @@ import {initDb}  from './databse/database.js';
 import { config } from './config.js';
 import * as dotenv from 'dotenv';
 
+
 import router from './router/index.js'
 
 dotenv.config();
