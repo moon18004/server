@@ -71,12 +71,12 @@ export async function create(body,userId) {
   
 export async function getById(id){
     return Course.findById(id)
-    
 }
 
 export async function update(id, author, subject, code, text) {
+  const user = await userRepository.findById(userId) || await userRepository.findOauthById(userId);
   return Course.findByIdAndUpdate(id, {
-    author: author,
+    author: user.name,
     subject: subject,
     code: code,
     text: text

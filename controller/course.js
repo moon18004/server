@@ -36,7 +36,11 @@ export async function updateCourse(req, res, next){
   const id = req.params.id;
   const {author, subject, code, text} = req.body;
   const update = await courseRepository.update(id, author, subject, code, text);
-  
+  const course = await courseRepository.getById(id);
+  if(course.userId !== req.userId){
+    return res.sendStatus(403);
+  }
+
   if(update){
     res.status(200).json(update);
   }
@@ -47,9 +51,14 @@ export async function updateCourse(req, res, next){
 
 export async function deleteCourse(req, res){
   const id = req.params.id;
-  const course= await courseRepository.discard(id);
-
-  if(course){
+  const courseGetId = await courseRepository.getById(id);
+  // const course= await courseRepository.discard(id);
+  
+  if(courseGetId.userId !== req.userId){
+    return res.sendStatus(403);
+  }
+  if(courseGetId){
+    await courseRepository.discard(id);
     res.status(200).json(course);
   }
   else{
