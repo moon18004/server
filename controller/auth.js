@@ -9,7 +9,7 @@ let number;
 export async function signup (req, res, next) {
   // console.log(req);
   // console.log(req.body);
-  const { username, password, name, email } = req.body;
+  const { username, password, name, email, country } = req.body;
   const found = await userRepository.findByUsername(username);
   if (found) {
     return res.status(409).json({ message: `${username} already exists` });
@@ -20,15 +20,17 @@ export async function signup (req, res, next) {
     username,
     password: hashed,
     name,
-    email
+    email,
+    country,
+    level: 2
   });
   const token = createJwtToken(userId);
   res.status(201).json({ token, username });
 }
 
 export async function login(req, res){
-  const {username, password} = req.body;
-  const user = await userRepository.findByUsername(username);
+  const {email, password} = req.body;
+  const user = await userRepository.findByEmail(email);
   if(!user){
     return res.status(401).json({message: 'Invalid user or password'});
   }
@@ -38,6 +40,7 @@ export async function login(req, res){
   }
 
   const token = createJwtToken(user.id);
+  const username = user.username
   res.status(200).json({token, username});
 }
 
@@ -52,6 +55,7 @@ export async function me(req, res, next) {
 
 export async function email(req, res, next) {
   const email = req.body.email
+  console.log(`${email} line56`);
   const found = await userRepository.findByEmail(email);
   if (found) {
     return res.status(409).json({ message: `${email} already exists` });
@@ -61,7 +65,7 @@ export async function email(req, res, next) {
   setTimeout(() => {
     number = undefined;
   }, 300000);
-  return res.status(200).json({message: `email sent ${number}`});
+  return res.status(200).json({message: `opt sent`});
 }
 export async function check(req, res, next) {
   const code = req.params.code;
@@ -69,6 +73,6 @@ export async function check(req, res, next) {
     return res.status(200).json({message: "code matched"});
   }
   else{
-    return res.status(401).json({message: `code is not matched ${number}`});
+    return res.status(401).json({message: `code is not matched`});
   }
 }

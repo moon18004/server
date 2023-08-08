@@ -8,14 +8,15 @@ import { isAuth } from '../middleware/auth.js';
 const router = express.Router();
 
 const validateCredential = [
-  body('username').trim().isLength({min: 5}).withMessage('username should be at least 5 characters'),
-  body('password').trim().isLength({min: 9}).withMessage('password should be at least 9 characters'),
+  body('email').isEmail().normalizeEmail().withMessage('invalid email'),
+  body('password').trim().isLength({min: 8}).withMessage('password should be at least 8 characters'),
   validate,
 ];
 const validateSignup=[
   ...validateCredential,
+  body('username').trim().isLength({min: 2}).withMessage('username should be at least 2 characters'),
   body('name').notEmpty().withMessage('name is missing'),
-  body('email').isEmail().normalizeEmail().withMessage('invalid email'),
+  body('country').notEmpty().withMessage('country is missing'),
   validate
 ];
 const validateEmail=[
@@ -26,7 +27,7 @@ const validateEmail=[
 router.post('/signup', validateSignup, authController.signup);
 router.post('/login', validateCredential, authController.login);
 router.get('/me', isAuth, authController.me);
-router.get('/email', validateEmail, authController.email);
+router.post('/email', validateEmail, authController.email);
 router.get('/check/:code', authController.check);
 
 
