@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 import { config } from '../config.js';
-console.log(config.mailer.id);
+console.log(`${config.mailer.id} line 3`);
 
 function generateRandom() {
   let ranNum = Math.floor(Math.random() * (max-min+1))+ min;
@@ -23,7 +23,7 @@ const email = {
 const send = async (option) => {
   nodemailer.createTransport(email).sendMail(option, (error, info) =>{
     if(error){
-      console.log(error);
+      console.log(`${error} line26`);
     }
     else{
       console.log(info);
