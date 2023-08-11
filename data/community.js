@@ -11,7 +11,7 @@ const postSchema= new Mongoose.Schema(
     comments : {type: Number, required: true},
     author: {type: String, required: true},
     userId : {type: String, required: true},
-
+    view: {type: Number, required: true}
   },
   //시간 생성
   {timestamps: true}
@@ -36,7 +36,8 @@ export async function create(body, userId) {
     title: body.title,
     mainText: body.mainText,
     comments : 0,
-    author: user.name,
+    author: user.username,
+    view: 0,
     userId
   }).save();
   // return new Post({body}).save();
