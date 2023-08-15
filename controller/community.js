@@ -16,7 +16,7 @@ export class CommunityController{
       ? await this.community.getAllBySearch(search)
       : await this.community.getAll());
     // res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(data);
+    res.status(200).json([...data]);
   }
   getPost = async (req, res) =>{
     const id = req.params.id;
@@ -32,6 +32,7 @@ export class CommunityController{
   create = async (req, res, next) =>{
     const {category,title,mainText} = req.body;
     const body = {category,title,mainText};
+    console.log(body);
     const community = await this.community.create(body, req.userId);
     res.status(201).json(community);
   }

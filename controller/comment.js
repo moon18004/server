@@ -29,8 +29,9 @@ export async function commentCreate(req, res, next){
 
 export async function updateComment(req, res, next){
   const id = req.params.id;
-  const {text} = req.body;
-  const update = await commentRepository.update(id, text);
+  const {category, mainText, title} = req.body;
+  const body = {category, mainText, title}
+  const update = await commentRepository.update(id, body);
   
   if(update){
     res.status(200).json(update);
