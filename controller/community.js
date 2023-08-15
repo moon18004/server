@@ -32,6 +32,7 @@ export class CommunityController{
   create = async (req, res, next) =>{
     const {category,title,mainText} = req.body;
     const body = {category,title,mainText};
+    console.log(body);
     const community = await this.community.create(body, req.userId);
     res.status(201).json(community);
   }

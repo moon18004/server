@@ -32,7 +32,7 @@ export async function getAll() {
 export async function create(body, userId) {
   const user = await userRepository.findById(userId) || await userRepository.findOauthById(userId);
   return new Post({
-    category: "question",
+    category: body.category,
     title: body.title,
     mainText: body.mainText,
     comments : 0,
