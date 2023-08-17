@@ -6,7 +6,6 @@ import { validate } from '../middleware/validator.js';
 import { isAuth } from '../middleware/auth.js';
 
 const course = [
-    body('author').notEmpty().withMessage('author missing'),
     body('subject').notEmpty().withMessage('subject missing'),
     body('code').notEmpty().withMessage('code missing'),
     body('text').notEmpty().withMessage('text is necessary'),
