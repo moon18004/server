@@ -1,9 +1,8 @@
 import { useVirtualId } from '../databse/database.js';
 import Mongoose from 'mongoose';
 
-const commentSchema =  Mongoose.Schema({
-
-  // _id 부분은 기본적으로 생략. 알아서 Object.id를 넣어줌
+const commentSchema =  Mongoose.Schema(
+  {// _id 부분은 기본적으로 생략. 알아서 Object.id를 넣어줌
   author: {
     type: String,
     required: true, // null 여부
@@ -15,17 +14,17 @@ const commentSchema =  Mongoose.Schema({
     required: true, // null 여부
     unique: false
   },
-
-  createdAt: {
-    type: Date,
-    default: Date.now, // 기본값
-  },
-
   source_id: {
     type: String,
     required: true
-  }
-});
+  },
+  userId:{
+    type: String,
+    required:true
+  }},
+  
+  {timestamps: true}
+  );
 
 useVirtualId(commentSchema);
 
@@ -39,18 +38,20 @@ export async function create(body) {
   return new Comment({
     author: body.author,
     text: body.text,
-    source_id: body.source_id
+    source_id: body.source_id,
+    userId : body.userId
   }).save();
 }
   
-export async function getById(id){
-    return Comment.findById(id)
+export async function getByPostId(id){
+    // return Comment.findById(id)
+    return Comment.find({source_id : id}).sort({createdAt: -1});
     
 }
 
-export async function update(id, text) {
+export async function update(id, body) {
   return Comment.findByIdAndUpdate(id, {
-    text: text
+    text : body.text
   });
 }
 
