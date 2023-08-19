@@ -65,7 +65,16 @@ export async function getAllBySearch(search){
   const filtered = Post.find({title: {$regex: search, $options: "i"}}).sort({createdAt: -1});
   console.log(filtered);
   return filtered;
-
+}
+export async function getAllByText(text){
+  // const filteredByTitle = Post.find({title: search}).sort({createdAt:-1});
+  // console.log(filteredByTitle);
+  // const filteredBymainText = Post.find({mainText: search}).sort({createdAt:-1});
+  // const filtered = new Set([...filteredByTitle, ...filteredBymainText].sort({createdAt:-1}));
+  // const filtered = Post.find({title: {$regex: search, $options: "i"}}).find({mainText: {$search : search}}).sort({createdAt: -1});
+  const filtered = Post.find({mainText: {$regex: text, $options: "i"}}).sort({createdAt: -1});
+  console.log(filtered);
+  return filtered;
 }
 
 export async function increaseView(id, num){

@@ -9,11 +9,16 @@ export class CommunityController{
   getPosts = async (req, res) =>{
     console.log("getPosts");
     const username = req.query.username;
-    const search = req.query.search;
+    // console.log(username);
+    const search = req.query.title;
+    const text = req.query.text;
+    console.log(search);
     const data = (username 
       ? await this.community.getAllByUsername(username)
       : search
-      ? await this.community.getAllBySearch(search)
+      ? await this.community.getAllBySearch(search) 
+      : text 
+      ? await this.community.getAllByText(text)
       : await this.community.getAll());
     // res.setHeader('Content-Type', 'application/json');
     res.status(200).json([...data]);
