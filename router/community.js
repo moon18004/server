@@ -12,6 +12,9 @@ export default function communityRouter(communityController){
   router.get('/:id', communityController.getPost);
   router.put('/:id',isAuth, communityController.updatePost);
   router.delete('/:id',isAuth, communityController.deletePost);
+  router.put('/view/:id', communityController.increaseView);
+  router.put('/num/:id', communityController.changeNumComments);
+
   return router;
 }
 

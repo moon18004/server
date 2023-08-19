@@ -68,6 +68,15 @@ export async function getAllBySearch(search){
 
 }
 
+export async function increaseView(id, num){
+  // console.log(id, num.num);
+  return Post.findByIdAndUpdate(id, { view: num.num }, { returnOriginal: false });
+}
+export async function changeNumComments(id, num){
+  // console.log(id, num.num);
+  return Post.findByIdAndUpdate(id, { comments: num.num }, { returnOriginal: false });
+}
+
 export async function update(id, body) {
   return Post.findByIdAndUpdate(id, { category: body.category, title:body.title, mainText: body.mainText}, { returnOriginal: false });
 }

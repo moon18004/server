@@ -47,6 +47,12 @@ export async function updateComment(req, res, next){
   }
 }
 
+export async function getNumComments(req, res, next) {
+  const id = req.params.id;
+  const num = await commentRepository.getNumComments(id)
+  console.log(num);
+}
+
 export async function deleteComment(req, res){
   const id = req.params.id;
   const comment= await commentRepository.discard(id);

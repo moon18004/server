@@ -42,11 +42,15 @@ export async function create(body) {
     userId : body.userId
   }).save();
 }
+
+export async function getNumComments(id){
+  const num =  Comment.find({source_id : id}).sort({createdAt: -1});
+  console.log(num);
+}
   
 export async function getByPostId(id){
     // return Comment.findById(id)
     return Comment.find({source_id : id}).sort({createdAt: -1});
-    
 }
 
 export async function update(id, body) {

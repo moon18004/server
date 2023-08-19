@@ -50,7 +50,22 @@ export class CommunityController{
     }
     const updated = await this.community.update(id, body);
     res.status(200).json(updated);
+  };
+  increaseView = async (req, res, next) =>{
+    const id = req.params.id;
+    const number = req.body;
+    
+    const updated = await this.community.increaseView(id, number);
+    res.status(200).json(updated);
   }
+  changeNumComments = async (req, res, next) =>{
+    const id = req.params.id;
+    const number = req.body;
+    
+    const updated = await this.community.changeNumComments(id, number);
+    res.status(200).json(updated);
+  }
+
   deletePost = async (req, res, next) =>{
     const id = req.params.id;
     const post = await this.community.getById(id);
