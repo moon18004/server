@@ -9,11 +9,16 @@ export class CommunityController{
   getPosts = async (req, res) =>{
     console.log("getPosts");
     const username = req.query.username;
-    const search = req.query.search;
+    // console.log(username);
+    const search = req.query.title;
+    const text = req.query.text;
+    console.log(search);
     const data = (username 
       ? await this.community.getAllByUsername(username)
       : search
-      ? await this.community.getAllBySearch(search)
+      ? await this.community.getAllBySearch(search) 
+      : text 
+      ? await this.community.getAllByText(text)
       : await this.community.getAll());
     // res.setHeader('Content-Type', 'application/json');
     res.status(200).json([...data]);
@@ -50,7 +55,22 @@ export class CommunityController{
     }
     const updated = await this.community.update(id, body);
     res.status(200).json(updated);
+  };
+  increaseView = async (req, res, next) =>{
+    const id = req.params.id;
+    const number = req.body;
+    
+    const updated = await this.community.increaseView(id, number);
+    res.status(200).json(updated);
   }
+  changeNumComments = async (req, res, next) =>{
+    const id = req.params.id;
+    const number = req.body;
+    
+    const updated = await this.community.changeNumComments(id, number);
+    res.status(200).json(updated);
+  }
+
   deletePost = async (req, res, next) =>{
     const id = req.params.id;
     const post = await this.community.getById(id);
