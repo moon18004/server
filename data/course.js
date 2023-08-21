@@ -30,7 +30,7 @@ const courseSchema =  Mongoose.Schema({
     unique: false
   },
   like: {
-    type: Number, // Int32가 아니다. 기본 자바스크립트에는 존재하지 않으니 넘버로 해줘야 한다.
+    type: Array, // Int32가 아니다. 기본 자바스크립트에는 존재하지 않으니 넘버로 해줘야 한다.
     unique: false
   },
   comments : {
