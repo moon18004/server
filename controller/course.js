@@ -34,8 +34,8 @@ export async function courseCreate(req, res, next){
 
 export async function updateCourse(req, res, next){
   const id = req.params.id;
-  const {author, subject, code, text} = req.body;
-  const body = {author, subject, code, text};
+  const {author, subject, code, text, like} = req.body;
+  const body = {author, subject, code, text, like};
   // const update = await courseRepository.update(id, body);
   const course = await courseRepository.getById(id);
   if(!course){

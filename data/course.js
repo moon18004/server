@@ -58,7 +58,7 @@ export async function getAll() {
 export async function create(body,userId) {
   // const user = await userRepository.findById(userId) || await userRepository.findOauthById(userId);
   return new Course({
-    author: body.author,
+    author: user.name,
     subject: body.subject,
     code: body.code,
     text: body.text,
@@ -78,7 +78,8 @@ export async function update(id, body) {
   return Course.findByIdAndUpdate(id, {
     subject: body.subject,
     code: body.code,
-    text: body.text
+    text: body.text,
+    like: body.like
   });
 }
 
