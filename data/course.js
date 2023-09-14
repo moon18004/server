@@ -1,4 +1,4 @@
-import { getCourse, useVirtualId } from "../databse/database.js";
+import {  useVirtualId } from "../databse/database.js";
 import Mongoose from "mongoose";
 import * as userRepository from "./auth.js";
 
