@@ -31,8 +31,8 @@ export async function getLimitedCourse(req,res){
 
 
 export async function courseCreate(req, res, next){
-  const {author, subject, code, text, reply, like, comments} = req.body;
-  const body = {author, subject, code, text, reply, like, comments};
+  const {author, subject, courseName, code, text, reply, like, comments} = req.body;
+  const body = {author, subject, code, courseName, text, reply, like, comments};
   const course = await courseRepository.create(body, req.userId);
   res.status(201).json(course);
 }

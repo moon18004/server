@@ -75,6 +75,8 @@ export async function getLimit(){
 
 export async function create(body, userId) {
 	// const user = await userRepository.findById(userId) || await userRepository.findOauthById(userId);
+  console.log(body.courseName);
+  console.log(body);
 	return new Course({
 		author: body.author,
 		subject: body.subject,
