@@ -54,6 +54,10 @@ const Course = Mongoose.model('course', courseSchema);
 export async function getAll() {
     return Course.find().sort({createdAt: -1});
   }
+
+export async function getLimit(){
+  return Course.find().sort({createdAt: -1}).limit(1);
+}
   
 export async function create(body,userId) {
   // const user = await userRepository.findById(userId) || await userRepository.findOauthById(userId);

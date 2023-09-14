@@ -15,6 +15,7 @@ const course = [
 const router = express.Router();
 
 router.get('/', courseController.getCourses);
+router.get('/limit', courseController.getLimitedCourse);
 router.post('/', course, isAuth, courseController.courseCreate);
 router.get('/:id', courseController.getCourse);
 router.put('/:id', course, isAuth, courseController.updateCourse);

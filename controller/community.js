@@ -23,6 +23,10 @@ export class CommunityController{
     // res.setHeader('Content-Type', 'application/json');
     res.status(200).json([...data]);
   }
+  getLimitedPosts = async (req, res) => {
+    const data = await this.community.getLimit(5);
+    res.status(200).json([...data]);
+  }
   getPost = async (req, res) =>{
     const id = req.params.id;
     const post = await this.community.getById(id);

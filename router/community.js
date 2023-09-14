@@ -17,6 +17,7 @@ const validateCredential = [
 
 export default function communityRouter(communityController){
   router.get('/', communityController.getPosts);
+  router.get('/limit', communityController.getLimitedPosts);
   router.post('/',isAuth, validateCredential, communityController.create);
   router.get('/:id', communityController.getPost);
   router.put('/:id',isAuth, validateCredential, communityController.updatePost);

@@ -76,6 +76,10 @@ export async function getAllByText(text){
   console.log(filtered);
   return filtered;
 }
+export async function getLimit(num){
+  const limited = Post.find().sort({createdAt: -1}).limit(num);
+  return limited;
+}
 
 export async function increaseView(id, num){
   // console.log(id, num.num);

@@ -24,6 +24,11 @@ export async function getCourse(req, res){
     res.status(404).json({message: `Post ${id} not found`});
   }
 }
+export async function getLimitedCourse(req,res){
+  const data = await courseRepository.getLimit();
+  res.status(200).json(data);
+}
+
 
 export async function courseCreate(req, res, next){
   const {author, subject, code, text, reply, like, comments} = req.body;
